@@ -15,6 +15,7 @@ class AuthController{
             $email=$_POST['email'];
             $password=$_POST['password'];
             $checkuserLogin=$this->model->checkLogin($email,$password);
+            //var_dump($checkuserLogin);
            if($checkuserLogin == 1 ){
             $_SESSION['userLoginStatus']=1;
             return require_once VIEW_PATH .'dashboard.html';

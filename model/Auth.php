@@ -6,6 +6,7 @@ class AuthModel{
         $sql="SELECT count(*) FROM  users WHERE email='{$email}'AND pwd='{$password}'";
         $stmt=$this->db->prepare($sql)->execute();
         return $stmt;
+        
        
     }
     public function checkRegister($name,$phone,$email,$password,$confirmpassword){
