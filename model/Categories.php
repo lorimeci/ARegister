@@ -5,8 +5,8 @@ class CategoriesModel
     
     public function insertCategory($categoryname,$image,$created)
     { 
-     
-        $sql="INSERT INTO categories(name,image,created_at) VALUES('$categoryname','$image','$created');";
+        $filePath = 'uploads/' . $image['name'];
+        $sql="INSERT INTO categories(name,image,created_at) VALUES('$categoryname','$filePath','$created');";
         $this->db->query($sql);
         
         return 1;

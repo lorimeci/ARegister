@@ -4,13 +4,25 @@ class CategoriesController{
     
     public function categoriesAction()
     { 
+        $message='';
         $datas = $this->model->getAllCategories();
         if(isset($_POST['submit'])){
             $categoryname = $_POST['c_name'];
-            $image = $_POST['c_image'];
+            $image = $_FILES['imageupload'];
             $created = $_POST['c_created'];
             $this->model->insertCategory($categoryname,$image,$created);
              //var_dump("works"); //you got it before . it should enter here. the problem was that you not submit the form.
+             $target_dir = "uploads/";
+             $target_file = $target_dir . basename($image["name"]);
+             //var_dump('target file: ' . $target_file);
+            if(move_uploaded_file($image["tmp_name"], 'C:\xampp\htdocs\ARegister\ARegister\uploads/'.basename($image["name"])))
+            {
+                $message="The file" .htmlspecialchars(basename($image["name"])). " has been uploaded";
+            }else{
+
+               $message="The file is not uploaded";
+            }
+
          return require_once VIEW_PATH .'tablecategories.php';
         }
 
@@ -23,6 +35,7 @@ class CategoriesController{
 
         $datas = $this->model->getAllCategories();
         return require_once VIEW_PATH .'tablecategories.php';
+       
     }
 
 } 

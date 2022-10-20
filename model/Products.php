@@ -5,8 +5,8 @@ class ProductsModel
     
     public function insertProduct($name,$price,$image,$category_id,$created_at)
     { 
-     
-        $sql="INSERT INTO products(name,price,image,category_id,created_at) VALUES('$name','$price','$image','$category_id','$created_at');";
+        $filePath = 'uploads/' . $image['name'];
+        $sql="INSERT INTO products(name,price,image,category_id,created_at) VALUES('$name','$price','$filePath','$category_id','$created_at');";
         
         $this->db->query($sql);
         

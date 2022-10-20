@@ -9,11 +9,20 @@ class ProductsController{
             //var_dump($datas);
             $name = $_POST['p_name'];
             $price = $_POST['p_price'];
-            $image = $_POST['p_image'];
+            $image = $_FILES['imageupload'];
             $category_id=$_POST['c_id'];
             $created_at = $_POST['p_created'];
             $this->model->insertProduct($name,$price,$image,$category_id,$created_at);
-             //var_dump("works");
+             
+             $target_dir = "uploads/";
+             $target_file = $target_dir . basename($image["name"]);
+             //var_dump('target file: ' . $target_file);
+             if(move_uploaded_file($image["tmp_name"], 'C:\xampp\htdocs\ARegister\ARegister\uploads/'.basename($image["name"]))){
+                $message="The file" .htmlspecialchars(basename($image["name"])). " has been uploaded";
+             }else{
+                $message="The file is not uploaded";
+             }
+             //var_dump($message);
          return require_once VIEW_PATH .'products.html';
         }
 

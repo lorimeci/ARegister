@@ -21,7 +21,7 @@
 
                 <div class="modal-body">
                     <div class="container my-5">
-                        <form method="post" id="myform" action="?action=create_product">
+                        <form method="post" id="myform" action="?action=create_product" enctype="multipart/form-data">
                             <input type="hidden" name="submit" value="1">
                             <div class="form-group">
                                 <label class="form-label">Product Name</label>
@@ -34,9 +34,8 @@
 
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Image</label>
-                                <input type="text" class="form-control" placeholder="Enter your image" name="p_image">
-
+                                <label class="form-label">Select Image to Upload: </label>
+                                <input type="file" class="form-control" name="imageupload">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Category id</label>
@@ -53,7 +52,7 @@
                                 <!-- <a href="?action=create_category" class="btn btn-primary" onclick="document.getElementById('myform').submit()" data-dismiss="modal">Submit</a> -->
                                 <button type="submit" name="submit" class="btn btn-primary" data-dismiss="modal">Submit </button>
                                 <!-- <a href="?action=create_category" class="text-white" onclick="document.getElementById('myform').submit()">Submit </a>  -->
-                                <button type="submit" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>

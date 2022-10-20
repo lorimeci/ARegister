@@ -18,21 +18,29 @@
     <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-
                 <div class="modal-body">
                     <div class="container my-5">
-                        <form method="post" id="myform" action="?action=create_category">
-                        <input type="hidden" name="submit" value="1">
+                        <?php if(!empty($message)){ ?>
+                            <div class="alert alert-primary" role="alert" id="msg">
+                                <?php echo $message; ?>
+                            </div>
+                            <?php } ?>
+                        <form method="post" id="myform" action="?action=create_category"  enctype="multipart/form-data">
+                            <input type="hidden" name="submit" value="1">
                             <div class="form-group">
                                 <label class="form-label">Category Name</label>
                                 <input type="text" class="form-control" placeholder="Enter categories name " name="c_name" />
 
                             </div>
-                            <div class="form-group">
+
+ <!--                            <div class="form-group">
                                 <label class="form-label">Image</label>
                                 <input type="text" class="form-control" placeholder="Enter your image" name="c_image">
-
-                            </div>
+                            </div> -->
+                             <div class="form-group">
+                                <label class="form-label">Select Image to Upload: </label>
+                                <input type="file" class="form-control" name="imageupload">
+                            </div> 
                             <div class="form-group">
                                 <label class="form-label">Created At</label>
                                 <input type="text" class="form-control" placeholder="Created at " name="c_created">
