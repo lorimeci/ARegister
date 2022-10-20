@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Add Categories </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.3.1/dt-1.10.25/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.css"/>
 </head>
 
 
@@ -21,7 +21,8 @@
 
                 <div class="modal-body">
                     <div class="container my-5">
-                        <form method="post" id="myform" action="">
+                        <form method="post" id="myform" action="?action=create_category">
+                        <input type="hidden" name="submit" value="1">
                             <div class="form-group">
                                 <label class="form-label">Category Name</label>
                                 <input type="text" class="form-control" placeholder="Enter categories name " name="c_name" />
@@ -38,10 +39,11 @@
 
                             </div>
                             <div class="modal-footer">
-                             <a href="?action=create_category" class="btn btn-primary" onclick="document.getElementById('myform').submit()" data-dismiss="modal">Submit</a>  
+                             <!-- <a href="?action=create_category" class="btn btn-primary" onclick="document.getElementById('myform').submit()" data-dismiss="modal">Submit</a>   -->
 <!--                             <button type="submit" name="submit"   class="btn btn-danger" data-dismiss="modal">
                             <a href="?action=create_category" class="text-white" onclick="document.getElementById('myform').submit()">Submit </a> </button>  -->
-                            <button type="submit" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal">submit the form</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>
@@ -95,14 +97,34 @@
 
            
 </body>
+
 <script
-  src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.3.1/dt-1.10.25/datatables.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="text/javascript">
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="text/javascript">
  $(document).ready(function () {
-  $('#datatble').DataTable();
+  $('#datatble').DataTable(
+    {
+        'serverSide':true,
+        'processing':true,
+        'paging':true,
+        'order':[],
+        'ajax':{
+            'url':'fetch_data.php',
+            'type':'post',
+        },
+        'fnCreateRow':function(nRow,aData,iDataIndex){
+            $(nRow).attr('id',aData[0]);
+
+        }
+
+
+    }
+  );
 });
-</script>
+</script> -->
 
 </html>

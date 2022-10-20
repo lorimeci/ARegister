@@ -21,7 +21,7 @@ class ProductsController{
         exit;
     }
 
-    public function getAllCategories()
+    public function getAllProducts()
     {
         $datas = $this->model->getAllProducts();
         return require_once VIEW_PATH .'products.html';

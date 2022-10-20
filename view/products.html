@@ -21,7 +21,8 @@
 
                 <div class="modal-body">
                     <div class="container my-5">
-                        <form method="post" id="myform" action="">
+                        <form method="post" id="myform" action="?action=create_product">
+                            <input type="hidden" name="submit" value="1">
                             <div class="form-group">
                                 <label class="form-label">Product Name</label>
                                 <input type="text" class="form-control" placeholder="Enter product name " name="p_name" />
