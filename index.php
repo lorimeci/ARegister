@@ -10,9 +10,11 @@
     require_once  ROOT_PATH .'../controller/AuthController.php';
     require_once  ROOT_PATH .'../controller/UserController.php';
     require_once  ROOT_PATH .'../controller/CategoriesController.php';
+    require_once  ROOT_PATH .'../controller/ProductsController.php';
     require_once  ROOT_PATH .'../model/User.php';
     require_once  ROOT_PATH .'../model/Auth.php';
     require_once  ROOT_PATH .'../model/Categories.php';
+    require_once  ROOT_PATH .'../model/Products.php';
     require_once ROOT_PATH .'../routes/routes.php';
 /* 
     spl_autoload_register(function($class_name){

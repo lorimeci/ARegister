@@ -20,13 +20,15 @@ if(isset($_GET['action'])){
     if($request == 'create_category'){
         $route="CategoriesController@categoriesAction";
     }
+    
+    if($request == 'getCategories'){
+        $route="CategoriesController@getAllCategories";
+    }
 
     if($request == 'products'){
         $route="ProductsController@productsAction";
     }
     
-    if($request == 'getCategories'){
-        $route="CategoriesController@getAllCategories";
-    }
+
 
 }
