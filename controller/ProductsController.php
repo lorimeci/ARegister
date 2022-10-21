@@ -4,6 +4,7 @@ class ProductsController{
     
     public function productsAction()
     { 
+        $message='';
         if(isset($_POST['submit'])){
             $datas = $this->model->getAllProducts();
             //var_dump($datas);
@@ -22,7 +23,7 @@ class ProductsController{
              }else{
                 $message="The file is not uploaded";
              }
-             //var_dump($message);
+             
          return require_once VIEW_PATH .'products.html';
         }
 

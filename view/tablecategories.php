@@ -20,11 +20,11 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="container my-5">
-                        <?php if(!empty($message)){ ?>
-                            <div class="alert alert-primary" role="alert" id="msg">
-                                <?php echo $message; ?>
-                            </div>
-                            <?php } ?>
+                    <?php if(!empty($message)){ ?>
+                        <div class="alert alert-primary" role="alert" id="msg">
+                            <?php echo $message; ?>
+                        </div>
+                        <?php } ?>
                         <form method="post" id="myform" action="?action=create_category"  enctype="multipart/form-data">
                             <input type="hidden" name="submit" value="1">
                             <div class="form-group">
@@ -40,6 +40,7 @@
                              <div class="form-group">
                                 <label class="form-label">Select Image to Upload: </label>
                                 <input type="file" class="form-control" name="imageupload">
+                                
                             </div> 
                             <div class="form-group">
                                 <label class="form-label">Created At</label>
@@ -77,15 +78,14 @@
             if(isset($datas)) {
             foreach ($datas as $data) {
             ?>
-
                 <tr>
                 <td><?php echo $data['categories_id']; ?></td>
                 <td><?php echo $data['name'] ?></td>
-                <td><?php echo $data['image'] ?></td>
+                <td> <img src="<?php echo $image ?>" weight="80" width="80"></td> 
                 <td><?php echo $data['created_at'] ?></td>
                 <td>  
-                <button class="btn btn-primary"> <a href=""  class="text-light">Update</a></button>
-                <button class="btn btn-danger"> <a href="" class="text-light">Delete</a></button>
+                <button class="btn btn-primary"><a href="?action=updateCategories?updateid=<?php echo $data['categories_id'];?>" class="btn btn-primary" > Update</a> </button>
+                <button class="btn btn-danger"><a href="?action=deleteCategories?deleteid=<?php echo $data['categories_id'];?> " class="btn btn-danger" > Delete</a></button>
                 </td>
                 </tr>
               
@@ -112,27 +112,4 @@
   crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-<!-- <script src="text/javascript">
- $(document).ready(function () {
-  $('#datatble').DataTable(
-    {
-        'serverSide':true,
-        'processing':true,
-        'paging':true,
-        'order':[],
-        'ajax':{
-            'url':'fetch_data.php',
-            'type':'post',
-        },
-        'fnCreateRow':function(nRow,aData,iDataIndex){
-            $(nRow).attr('id',aData[0]);
-
-        }
-
-
-    }
-  );
-});
-</script> -->
-
 </html>

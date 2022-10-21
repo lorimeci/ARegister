@@ -32,6 +32,14 @@ if(isset($_GET['action'])){
     if($request == 'getProducts'){
         $route="ProductsController@getAllProducts";
     }
+    if($request == 'updateCategories'){
+        $route="CategoriesController@updateCategories";
+    }
+/*     $data=[];
+     $categories_id=$data['categories_id']; */ //.$categories_id.'
+    if($request == 'deleteCategories?deleteid= '){
+        $route="CategoriesController@deleteCategories";
+    }
 
     
 
