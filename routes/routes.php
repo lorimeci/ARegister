@@ -35,13 +35,11 @@ if(isset($_GET['action'])){
     if($request == 'updateCategories'){
         $route="CategoriesController@updateCategories";
     }
-/*     $data=[];
-     $categories_id=$data['categories_id']; */ //.$categories_id.'
-    if($request == 'deleteCategories?deleteid= '){
+
+    if($request == 'deleteCategories'){
         $route="CategoriesController@deleteCategories";
     }
-
-    
+ 
 
     
 

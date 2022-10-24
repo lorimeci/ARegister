@@ -32,11 +32,6 @@
                                 <input type="text" class="form-control" placeholder="Enter categories name " name="c_name" />
 
                             </div>
-
- <!--                            <div class="form-group">
-                                <label class="form-label">Image</label>
-                                <input type="text" class="form-control" placeholder="Enter your image" name="c_image">
-                            </div> -->
                              <div class="form-group">
                                 <label class="form-label">Select Image to Upload: </label>
                                 <input type="file" class="form-control" name="imageupload">
@@ -48,9 +43,6 @@
 
                             </div>
                             <div class="modal-footer">
-                             <!-- <a href="?action=create_category" class="btn btn-primary" onclick="document.getElementById('myform').submit()" data-dismiss="modal">Submit</a>   -->
-<!--                             <button type="submit" name="submit"   class="btn btn-danger" data-dismiss="modal">
-                            <a href="?action=create_category" class="text-white" onclick="document.getElementById('myform').submit()">Submit </a> </button>  -->
                             <button type="submit" class="btn btn-primary" data-dismiss="modal">submit the form</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
@@ -61,8 +53,6 @@
 
         </div>
     </div>
-    
-
                 <table class="table" id="datatable">
             <thead>
                 <tr>
@@ -84,8 +74,8 @@
                 <td> <img src="<?php echo $image ?>" weight="80" width="80"></td> 
                 <td><?php echo $data['created_at'] ?></td>
                 <td>  
-                <button class="btn btn-primary"><a href="?action=updateCategories?updateid=<?php echo $data['categories_id'];?>" class="btn btn-primary" > Update</a> </button>
-                <button class="btn btn-danger"><a href="?action=deleteCategories?deleteid=<?php echo $data['categories_id'];?> " class="btn btn-danger" > Delete</a></button>
+                <a class="btn btn-primary" href="?action=updateCategories?updateid=<?php echo $data['categories_id'];?>" class="btn btn-primary" > Update</a>
+                <a class="btn btn-danger" href="?action=deleteCategories&deleteid=<?php echo $data['categories_id'];?> " class="btn btn-danger" > Delete</a>
                 </td>
                 </tr>
               
