@@ -21,4 +21,10 @@ class ProductsModel
 
         return $row->fetchAll();
     }
+    public function deleteProduct($id)
+    {
+        $sql="DELETE FROM products WHERE id='$id'";
+        $this->db->query($sql);
+    
+    }
 }

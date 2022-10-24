@@ -41,13 +41,28 @@ class CategoriesController{
     public function updateCategories()
     {
         echo "Jemi te update categories ";
-        var_dump($_GET);
-        if(($_GET['action'] == 'updateCategories')){
+        $id=$_GET['updateid'];
+       var_dump($_GET);
+           if(($_GET['action'] == 'updateCategories') && !empty($_POST['submit'])){
             var_dump($_GET);
-
-         $datas = $this->model->getAllCategories();
-         return require_once VIEW_PATH .'tablecategories.php';
+                $categoryname = $_POST['c_name'];
+                $image = $_FILES['imageupload'];
+                $created = $_POST['c_created'];
+                $this->model->updateCategories($id,$categoryname,$image,$created);
+         
         }   
+        $datas = $this->model->getAllCategories();
+        return require_once VIEW_PATH .'tablecategories.php'; 
+  /*       $id=$_GET['updateid'];
+        var_dump($id);
+         if(isset($_POST['submit'])){
+            var_dump($_POST);
+            $categoryname = $_POST['c_name'];
+            $image = $_FILES['imageupload'];
+            $created = $_POST['c_created'];
+            $this->model->updateCategories($id,$categoryname,$image,$created);
+        } */
+
     }
 
     public function deleteCategories()
@@ -59,7 +74,7 @@ class CategoriesController{
                 //var_dump($categories_id);
                 //var_dump("ketu do shfaqet categories_id:" .$categories_id."</br>" );
                 $this->model->deleteCategories($categories_id);
-               
+             
             }
             $datas = $this->model->getAllCategories();
             return require_once VIEW_PATH .'tablecategories.php';

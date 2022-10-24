@@ -19,7 +19,7 @@ class ProductsController{
              $target_file = $target_dir . basename($image["name"]);
              //var_dump('target file: ' . $target_file);
              if(move_uploaded_file($image["tmp_name"], 'C:\xampp\htdocs\ARegister\ARegister\uploads/'.basename($image["name"]))){
-                $message="The file" .htmlspecialchars(basename($image["name"])). " has been uploaded";
+                $message="The file " .htmlspecialchars(basename($image["name"])). " has been uploaded";
              }else{
                 $message="The file is not uploaded";
              }
@@ -35,6 +35,21 @@ class ProductsController{
     {
         $datas = $this->model->getAllProducts();
         return require_once VIEW_PATH .'products.html';
+    }
+
+    public function deleteProduct()
+    {
+       
+            if(($_GET['action'] == 'deleteProduct')){
+               
+                $id=$_GET['deleteid'];
+          
+                $this->model->deleteProduct($id);
+            }
+            $datas = $this->model->getAllProducts();
+            return require_once VIEW_PATH .'products.html';
+        
+       
     }
 
 } 

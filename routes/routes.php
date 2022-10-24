@@ -39,6 +39,10 @@ if(isset($_GET['action'])){
     if($request == 'deleteCategories'){
         $route="CategoriesController@deleteCategories";
     }
+    
+    if($request == 'deleteProduct'){
+        $route="ProductsController@deleteProduct";
+    }
  
 
     

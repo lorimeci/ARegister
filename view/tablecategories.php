@@ -29,9 +29,9 @@
                             <input type="hidden" name="submit" value="1">
                             <div class="form-group">
                                 <label class="form-label">Category Name</label>
-                                <input type="text" class="form-control" placeholder="Enter categories name " name="c_name" />
+                                <input type="text" class="form-control" placeholder="Enter category name " name="c_name" />
 
-                            </div>
+                            </div> 
                              <div class="form-group">
                                 <label class="form-label">Select Image to Upload: </label>
                                 <input type="file" class="form-control" name="imageupload">
@@ -74,7 +74,7 @@
                 <td> <img src="<?php echo $image ?>" weight="80" width="80"></td> 
                 <td><?php echo $data['created_at'] ?></td>
                 <td>  
-                <a class="btn btn-primary" href="?action=updateCategories?updateid=<?php echo $data['categories_id'];?>" class="btn btn-primary" > Update</a>
+                <a class="btn btn-primary" href="?action=updateCategories&updateid=<?php echo $data['categories_id'];?>" class="btn btn-primary" > Update</a>
                 <a class="btn btn-danger" href="?action=deleteCategories&deleteid=<?php echo $data['categories_id'];?> " class="btn btn-danger" > Delete</a>
                 </td>
                 </tr>
