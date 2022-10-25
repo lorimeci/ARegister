@@ -20,23 +20,24 @@ class CategoriesModel
 
         return $row->fetchAll();
     }
-    public function updateCategories($id,$categoryname,$image,$created)
+    public function updateCategories($id)
     {
         $id=$_GET['updateid'];
       
-       // DISPLAY DATA 
-        $sql="SELECT * FROM categories WHERE categories_id=$id ;";
-        var_dump($sql);
-        $row = $this->db->query($sql);
-        var_dump($row);
-        return $row->fetchAll(); 
-        $filePath = 'uploads/' . $image['name'];
-        var_dump($filePath);
-        $sql="UPDATE categories SET categories_id='' name='$categoryname',image='$filePath',created_at='$created' WHERE categories_id=$id;";
-        //var_dump($sql); name image and created are null because we dont check for submit here we have to get this from a form but we only take the id from url 
-        $this->db->query($sql); 
-        return 1;
+        $sql="SELECT * FROM categories WHERE categories_id=$id;";
+        $stmt = $this->db->query($sql);
+        $data=[':id'=>$id];
+        return $stmt->fetchAll(); 
+        
+       
     
+    }
+    public function updatestoreCategory($categoryname,$image,$created){
+        $id=$_GET['updateid'];
+        $filePath = 'uploads/' . $image['name'];
+       $sql="UPDATE categories SET categories_id='' name='$categoryname',image='$filePath',created_at='$created' WHERE categories_id=$id;";
+       $this->db->query($sql); 
+        return 1; 
     }
 
     public function deleteCategories($categories_id)
@@ -45,7 +46,7 @@ class CategoriesModel
         $this->db->query($sql);
     
     }
-
+    
     public function Pagination()
     {
         $sql = "SELECT (*) FROM categories";

@@ -40,34 +40,32 @@ class CategoriesController{
 
     public function updateCategories()
     {
-        echo "Jemi te update categories ";
         $id=$_GET['updateid'];
-       var_dump($_GET);
-           if(($_GET['action'] == 'updateCategories') && !empty($_POST['submit'])){
-            var_dump($_GET);
-                $categoryname = $_POST['c_name'];
-                $image = $_FILES['imageupload'];
-                $created = $_POST['c_created'];
-                $this->model->updateCategories($id,$categoryname,$image,$created);
-         
-        }   
-        $datas = $this->model->getAllCategories();
-        return require_once VIEW_PATH .'tablecategories.php'; 
-  /*       $id=$_GET['updateid'];
-        var_dump($id);
-         if(isset($_POST['submit'])){
+        // var_dump($_GET);
+        // here, we want to find the category if $id, 
+        //then, update the category data 
+        return require_once VIEW_PATH .'updatecategories.php'; 
+             
+    }
+
+    public function updatestoreCategory(){
+        echo "Jemi te updatestorecategory";
+        //$id=$_GET['updateid'];
+        //var_dump($id);
+        if(isset($_POST['submit'])){
             var_dump($_POST);
-            $categoryname = $_POST['c_name'];
+           $categoryname = $_POST['c_name'];
             $image = $_FILES['imageupload'];
             $created = $_POST['c_created'];
-            $this->model->updateCategories($id,$categoryname,$image,$created);
-        } */
+            $this->model->updatestoreCategory($categoryname,$image,$created); 
+        }
+        $datas = $this->model->getAllCategories();
+        return require_once VIEW_PATH .'tablecategories.php';
 
     }
 
     public function deleteCategories()
     {
-       
             if(($_GET['action'] == 'deleteCategories')){
                 //var_dump($_GET);
                 $categories_id=$_GET['deleteid'];
