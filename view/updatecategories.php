@@ -16,11 +16,11 @@
         <h3 class="text-center">Update Category</h3>
         <!-- ?action=updateCategories&updateid=<php echo $data['categories_id'];?> 
         ?action=storeCategories-->
-        
+
         <form method="POST" id="myform" action="?action=storeCategories" enctype="multipart/form-data">
             <input type="hidden" name="submit" value="1">
-            
-            <input type="hidden" name="cat_id" value="<?php echo $_GET['updateid'] ;?>">
+
+            <input type="hidden" name="cat_id" value="<?php echo $_GET['updateid']; ?>">
             <div class="form-group">
                 <input type="hidden" class="form-control" value="1" name="id" />
             </div>
@@ -37,9 +37,9 @@
                 <label class="form-label">Created At</label>
                 <input type="text" class="form-control" placeholder="Created_at" value="<?php echo $_GET['created_at']; ?>" name="c_created">
             </div>
-            
+
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary mt-2" >Update the form </button>
+                <button type="submit" class="btn btn-primary mt-2">Update the form </button>
             </div>
         </form>
     </div>

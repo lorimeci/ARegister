@@ -6,6 +6,6 @@ class UserController extends AuthController
     public function loginAction()
     {
         $this->checkUserAccess();
-        require_once VIEW_PATH .'dashboard.html';
+        require_once VIEW_PATH . 'dashboard.html';
     }
 }

@@ -2,13 +2,13 @@
 class CategoriesModel
 {
     public $db;
-    
-    public function insertCategory($categoryname,$image,$created)
-    { 
+
+    public function insertCategory($categoryname, $image, $created)
+    {
         $filePath = 'uploads/' . $image['name'];
-        $sql="INSERT INTO categories(name,image,created_at) VALUES('$categoryname','$filePath','$created');";
+        $sql = "INSERT INTO categories(name,image,created_at) VALUES('$categoryname','$filePath','$created');";
         $this->db->query($sql);
-        
+
         return 1;
     }
 
@@ -20,35 +20,32 @@ class CategoriesModel
         return $row->fetchAll();
     }
 
-    public function updateCategories($id)
+    public function editCategories($id)
     {
         $id = $_GET['updateid'];
-      
+
         $sql = "SELECT * FROM categories WHERE categories_id=$id;";
         $stmt = $this->db->query($sql);
-        return $stmt->fetchAll(); 
-        
+        return $stmt->fetchAll();
     }
 
     public function updatestoreCategory($categoryname, $image, $created)
     {
-        $id= $_POST['cat_id'];
+        $id = $_POST['cat_id'];
         //$id=$_GET['updateid'];
         $filePath = 'uploads/' . $image['name'];
         //WHERE categories_id=$id
-       $sql="UPDATE categories SET  name= '$categoryname', image='$filePath', created_at='$created' WHERE categories_id='$id';";
-       $this->db->query($sql); 
-       return 1; 
-      
+        $sql = "UPDATE categories SET  name= '$categoryname', image='$filePath', created_at='$created' WHERE categories_id='$id';";
+        $this->db->query($sql);
+        return 1;
     }
 
     public function deleteCategories($categories_id)
     {
         $sql = "DELETE FROM categories WHERE categories_id='$categories_id'";
         $this->db->query($sql);
-    
     }
-    
+
     public function Pagination()
     {
 
@@ -56,17 +53,17 @@ class CategoriesModel
         $result = $this->db->query($sql);
         $num_per_page = 05;
         $total_records = $result->fetchColumn();
-        echo $total_records; 
-        $total_pages = ($total_records/$num_per_page);
+        echo $total_records;
+        $total_pages = ($total_records / $num_per_page);
         echo $total_pages;
 
-/*          if ($result->fetchColumn() > 0) {
+        /*          if ($result->fetchColumn() > 0) {
             echo $result;
          } */
     }
     public function created()
     {
-      $created_at = new \DateTime("now");
-      $this->db-> $created_at;
+        $created_at = new \DateTime("now");
+        $this->db->$created_at;
     }
 }
