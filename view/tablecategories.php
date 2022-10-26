@@ -30,7 +30,6 @@
                             <div class="form-group">
                                 <label class="form-label">Category Name</label>
                                 <input type="text" class="form-control" placeholder="Enter category name " name="c_name" />
-
                             </div> 
                              <div class="form-group">
                                 <label class="form-label">Select Image to Upload: </label>
@@ -43,7 +42,7 @@
 
                             </div>
                             <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-dismiss="modal">submit the form</button>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal" >submit the form</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </form>
@@ -65,7 +64,7 @@
             </thead>
             <tbody>
             <?php
-            if(isset($datas)) {
+            if(isset($datas)) { 
             foreach ($datas as $data) {
             ?>
                 <tr>
@@ -74,7 +73,7 @@
                 <td> <img src="<?php echo $image ?>" weight="80" width="80"></td> 
                 <td><?php echo $data['created_at'] ?></td>
                 <td>  
-                <a class="btn btn-primary" href="?action=updateCategories&updateid=<?php echo $data['categories_id'];?>" class="btn btn-primary" > Update</a>
+                <a class="btn btn-primary" href="?action=updateCategories&updateid=<?php echo $data['categories_id']; ?>&name=<?php echo $data['name'];?>&created_at=<?php echo $data['created_at'];?>" class="btn btn-primary"> Update</a>
                 <a class="btn btn-danger" href="?action=deleteCategories&deleteid=<?php echo $data['categories_id'];?> " class="btn btn-danger" > Delete</a>
                 </td>
                 </tr>
@@ -83,7 +82,8 @@
   
              </tbody>
             </table>
-            <nav aria-label="Page navigation example">
+            <?php  ?>
+<!--             <nav aria-label="Page navigation example">
             <ul class="pagination">
             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -91,7 +91,7 @@
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
-        </nav>
+        </nav> -->
 
            
 </body>
