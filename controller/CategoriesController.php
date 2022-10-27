@@ -62,4 +62,21 @@ class CategoriesController
         $datas = $this->model->getAllCategories();
         return require_once VIEW_PATH . 'tablecategories.php';
     }
+
+    public function Pagination()
+    {
+   
+        //echo "we are on the pagination controller";
+        if(($_GET['action'] == 'getCategories')){
+            $page=$_GET["page"];
+            $this->model->Pagination();
+        }else{
+            $page=1;
+        }
+        $start_from=($page-1)*3;
+        
+        $datas = $this->model->getAllCategories();
+        return require_once VIEW_PATH . 'tablecategories.php';
+       
+    }
 }

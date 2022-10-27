@@ -26,4 +26,21 @@ class ProductsModel
         $sql = "DELETE FROM products WHERE id='$id'";
         $this->db->query($sql);
     }
+    public function editProducts($id)
+    {
+        $id = $_GET['updateid'];
+
+        $sql = "SELECT * FROM products WHERE id=$id;";
+        $stmt = $this->db->query($sql);
+        return $stmt->fetchAll();
+    }
+
+    public function updateProducts($name, $price, $image, $category_id, $created_at)
+    {
+        $id = $_POST['cat_id'];
+        $filePath = 'uploads/' . $image['name'];
+        $sql = "UPDATE products SET  name= '$name',price= '$price', image='$filePath',category_id= '$category_id', created_at='$created_at' WHERE id='$id';";
+        $this->db->query($sql);
+        return 1;
+    }
 }

@@ -48,18 +48,21 @@ class CategoriesModel
 
     public function Pagination()
     {
-
-        $sql = "SELECT (*) FROM categories";
+        //$start_from=$start_from($page-1)*3;
+        $num_per_page = 3;
+        $page = $_GET["page"];
+        $start_from = ($page - 1) * 3;
+        
+        $sql = "SELECT * FROM categories limit $start_from, $num_per_page";
         $result = $this->db->query($sql);
-        $num_per_page = 05;
-        $total_records = $result->fetchColumn();
-        echo $total_records;
+        $num_per_page = 3;
+        $total_records = $result->rowCount();
         $total_pages = ($total_records / $num_per_page);
-        echo $total_pages;
+        for($i=1;$i<=$total_pages;$i++){
+         echo "<a href='?action=getCategories&page=".$i."'>".$i."</a>";
+        }
 
-        /*          if ($result->fetchColumn() > 0) {
-            echo $result;
-         } */
+ 
     }
     public function created()
     {

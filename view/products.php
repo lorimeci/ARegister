@@ -106,7 +106,7 @@
                         <?php echo $data['created_at'] ?>
                     </td>
                     <td>
-                        <a class="btn btn-primary" href="?action=updateProduct&updateid=<?php echo $data['id'];?>" class="btn btn-primary"> Update</a>
+                        <a class="btn btn-primary" href="?action=updateProducts&updateid=<?php echo $data['id']; ?>&name=<?php echo $data['name']; ?>&price=<?php echo $data['price']; ?>&category_id=<?php echo $data['category_id'] ?>&created_at=<?php echo $data['created_at']; ?>" class="btn btn-primary"> Update</a>
                         <a class="btn btn-danger" href="?action=deleteProduct&deleteid=<?php echo $data['id'];?> " class="btn btn-danger"> Delete</a>
                     </td>
                 </tr>
@@ -115,7 +115,7 @@
 
         </tbody>
     </table>
-    <nav aria-label="Page navigation example">
+<!--     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -123,7 +123,7 @@
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
-    </nav>
+    </nav> -->
 
 
 </body>

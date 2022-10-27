@@ -24,6 +24,10 @@ if (isset($_GET['action'])) {
     if ($request == 'getCategories') {
         $route = "CategoriesController@getAllCategories";
     }
+    
+    if ($request == 'getCategories') {
+        $route = "CategoriesController@Pagination";
+    }
 
     if ($request == 'create_product') {
         $route = "ProductsController@productsAction";
@@ -33,7 +37,7 @@ if (isset($_GET['action'])) {
         $route = "ProductsController@getAllProducts";
     }
     if ($request == 'updateCategories') {
-        $route = "CategoriesController@editCategories";
+        $route = "CategoriesController@updateCategories";
     }
 
     if ($request == 'deleteCategories') {
@@ -47,4 +51,11 @@ if (isset($_GET['action'])) {
     if ($request == 'deleteProduct') {
         $route = "ProductsController@deleteProduct";
     }
+    if ($request == 'updateProducts') {
+        $route = "ProductsController@editProducts";
+    }
+    if ($request == 'storeProducts') {
+        $route = "ProductsController@updateProducts";
+    }
+
 }
