@@ -65,4 +65,17 @@ class ProductsController
         $datas = $this->model->getAllProducts();
         return require_once VIEW_PATH . 'products.php';
     }
+    public function Pagination()
+    {
+   
+        //echo "we are on the pagination controller";
+        if(($_GET['action'] == 'getProducts')&& isset($_GET['page'])){
+            $page=$_GET['page'];
+            //echo $page;
+            $this->model->Pagination();
+        }
+        $datas = $this->model->getAllProducts();
+        return require_once VIEW_PATH . 'products.php';
+       
+    }
 }

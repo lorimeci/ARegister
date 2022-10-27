@@ -30,9 +30,13 @@ class CategoriesController
 
     public function getAllCategories()
     {
-
         $datas = $this->model->getAllCategories();
-        return require_once VIEW_PATH . 'tablecategories.php';
+        return require_once VIEW_PATH . 'tablecategories.php'; 
+      /*   if(($_GET['action'] == 'getCategories')&& isset($_GET['page'])){
+            $page=$_GET['page'];
+            //echo $page;
+            $this->model->Pagination();
+        } */
     }
 
     public function updateCategories()
@@ -65,18 +69,21 @@ class CategoriesController
 
     public function Pagination()
     {
-   
-        //echo "we are on the pagination controller";
-        if(($_GET['action'] == 'getCategories')){
-            $page=$_GET["page"];
+       //echo "we are on the pagination controller";
+        if(($_GET['action'] == 'getCategories')&& isset($_GET['page'])){
+            $page=$_GET['page']; 
             $this->model->Pagination();
         }else{
-            $page=1;
+            $page= 1; 
         }
-        $start_from=($page-1)*3;
-        
-        $datas = $this->model->getAllCategories();
+        $datas = $this->model->displayPagination();
         return require_once VIEW_PATH . 'tablecategories.php';
        
+    }
+
+    public function created()
+    {
+        $created_at = new \DateTime("now");
+        $this->model->created();
     }
 }

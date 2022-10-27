@@ -43,4 +43,25 @@ class ProductsModel
         $this->db->query($sql);
         return 1;
     }
+    public function Pagination()
+    {
+        $page = $_GET['page'];
+        $num_per_page = 1;
+        $start_from = ($page - 1) *$num_per_page;
+        //limit $start_from, $num_per_page
+        $sql = "SELECT * FROM products LIMIT " .$start_from. ',' .$num_per_page;
+        //VAR_DUMP($sql);
+        $result = $this->db->query($sql);
+        $num_per_page = 2;
+        $total_records = $result->rowCount();
+        $total_pages = ceil($total_records / $num_per_page);
+        var_Dump($total_pages);
+
+        for($i = 1 ;$i <= $total_pages ; $i++)
+        {
+         echo '<button class="btn btn-dark mx-1 mt-7"><a href="?action=getProducts&page='.$i.'" class="text-light"> '.$i.'</a></button>';
+        }
+
+ 
+    }
 }
