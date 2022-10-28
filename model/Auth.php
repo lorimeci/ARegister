@@ -16,4 +16,34 @@ class AuthModel
         $this->db->query($sql);
         return 1;
     }
+
+    public function isUserExists($email)
+    {
+        $checkUser = "SELECT email FROM users WHERE email='$email' LIMIT 1";
+        $result = $this->db->query($checkUser);
+        if ($result->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function confirmPassword($password, $confirmpassword)
+    {
+        if ($password == $confirmpassword) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function isPhone($phone)
+    {
+        $checkUser = "SELECT phone FROM users WHERE phone='$phone' LIMIT 1";
+        $result = $this->db->query($checkUser);
+        if ($result->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
