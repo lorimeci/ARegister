@@ -6,14 +6,13 @@ class ProductsController
     public function productsAction()
     {
         $message = '';
+        $datas = $this->model->getAllProducts();
         if (isset($_POST['submit'])) {
-            $datas = $this->model->getAllProducts();
             $name = $_POST['p_name'];
             $price = $_POST['p_price'];
             $image = $_FILES['imageupload'];
             $category_id = $_POST['c_id'];
-            $created_at = $_POST['p_created'];
-            $this->model->insertProduct($name, $price, $image, $category_id, $created_at);
+            $this->model->insertProduct($name, $price, $image, $category_id);
             $target_dir = "uploads/";
             $target_file = $target_dir . basename($image["name"]);
             if (move_uploaded_file($image["tmp_name"], 'C:\xampp\htdocs\ARegister\ARegister\uploads/' . basename($image["name"]))) {
@@ -21,10 +20,8 @@ class ProductsController
             } else {
                 $message = "The file is not uploaded";
             }
-
-            return require_once VIEW_PATH . 'products.html';
+            return require_once VIEW_PATH . 'products.php';
         }
-
         return require_once VIEW_PATH . 'products.php';
         exit;
     }
@@ -54,12 +51,11 @@ class ProductsController
         $datas = $this->model->getAllProducts();
         return require_once VIEW_PATH . 'products.php';
     }
+
     public function deleteProduct()
     {
         if (($_GET['action'] == 'deleteProduct')) {
-
             $id = $_GET['deleteid'];
-
             $this->model->deleteProduct($id);
         }
         $datas = $this->model->getAllProducts();
@@ -67,15 +63,19 @@ class ProductsController
     }
     public function Pagination()
     {
-       echo "we are on the pagination controller";
-        if(($_GET['action'] == 'getProducts')&& isset($_GET['page'])){
-            $page=$_GET['page']; 
+        if (($_GET['action'] == 'getProducts') && isset($_GET['page'])) {
+            $page = $_GET['page'];
             $this->model->Pagination();
-        }else{
-            $page= 1; 
+        } else {
+            $page = 1;
         }
         $datas = $this->model->displayPagination();
         return require_once VIEW_PATH . 'products.php';
-       
+    }
+
+    public function created()
+    {
+        $created_at = new \DateTime("now");
+        $this->model->created();
     }
 }

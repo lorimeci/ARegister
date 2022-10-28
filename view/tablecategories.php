@@ -36,11 +36,7 @@
                                 <input type="file" class="form-control" name="imageupload">
 
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Created At</label>
-                                <input type="text" class="form-control" placeholder="Created at " name="c_created">
 
-                            </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary" data-dismiss="modal">submit the form</button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -70,8 +66,8 @@
                     <tr>
                         <td><?php echo $data['categories_id']; ?></td>
                         <td><?php echo $data['name'] ?></td>
-                        <td> <img src="<?php echo $image ?>" weight="80" width="80"></td>
-                        <td><?php echo $data['created_at'] ?></td>
+                        <td> <img src="<?php echo $data['image']  ?>" weight="80" width="80"></td>
+                         <td><?php echo $data['created_at'] ?></td> 
                         <td>
                             <a class="btn btn-primary" href="?action=updateCategories&updateid=<?php echo $data['categories_id']; ?>&name=<?php echo $data['name']; ?>&created_at=<?php echo $data['created_at']; ?>" class="btn btn-primary"> Update</a>
                             <a class="btn btn-danger" href="?action=deleteCategories&deleteid=<?php echo $data['categories_id']; ?> " class="btn btn-danger"> Delete</a>

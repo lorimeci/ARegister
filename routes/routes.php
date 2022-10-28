@@ -34,7 +34,7 @@ if (isset($_GET['action'])) {
     }
 
     if ($request == 'getProducts') {
-        $route = "ProductsController@getAllProducts";
+        $route = "ProductsController@Pagination";
     }
     if ($request == 'updateCategories') {
         $route = "CategoriesController@updateCategories";

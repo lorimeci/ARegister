@@ -10,8 +10,7 @@ class CategoriesController
         if (isset($_POST['submit'])) {
             $categoryname = $_POST['c_name'];
             $image = $_FILES['imageupload'];
-            $created = $this->model->created();
-            $this->model->insertCategory($categoryname, $image, $created);
+            $this->model->insertCategory($categoryname, $image);
             $target_dir = "uploads/";
             $target_file = $target_dir . basename($image["name"]);
             if (move_uploaded_file($image["tmp_name"], 'C:\xampp\htdocs\ARegister\ARegister\uploads/' . basename($image["name"]))) {
@@ -20,19 +19,16 @@ class CategoriesController
 
                 $message = "The file is not uploaded";
             }
-
             return require_once VIEW_PATH . 'tablecategories.php';
         }
-
         return require_once VIEW_PATH . 'tablecategories.php';
-        exit;
+        exit; 
     }
 
     public function getAllCategories()
     {
         $datas = $this->model->getAllCategories();
-        return require_once VIEW_PATH . 'tablecategories.php'; 
-
+        return require_once VIEW_PATH . 'tablecategories.php';
     }
 
     public function updateCategories()
@@ -51,7 +47,7 @@ class CategoriesController
         }
         $datas = $this->model->getAllCategories();
         return require_once VIEW_PATH . 'tablecategories.php';
-    }
+    } 
 
     public function deleteCategories()
     {
@@ -65,21 +61,15 @@ class CategoriesController
 
     public function Pagination()
     {
-       //echo "we are on the pagination controller";
-        if(($_GET['action'] == 'getCategories')&& isset($_GET['page'])){
-            $page=$_GET['page']; 
+        if (($_GET['action'] == 'getCategories') && isset($_GET['page'])) {
+            $page = $_GET['page'];
             $this->model->Pagination();
-        }else{
-            $page= 1; 
+        } else {
+            $page = 1;
         }
         $datas = $this->model->displayPagination();
         return require_once VIEW_PATH . 'tablecategories.php';
-       
     }
 
-    public function created()
-    {
-        $created_at = new \DateTime("now");
-        $this->model->created();
-    }
+
 }

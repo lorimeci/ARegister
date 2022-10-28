@@ -45,7 +45,9 @@ class AuthController
             $this->model->checkRegister($name, $phone, $email, $password, $confirmpassword);
 
             $_SESSION['userLoginStatus'] = 1;
+            require_once VIEW_PATH . 'registration.html'; 
         }
+       
         if (!isset($_SESSION['userLogInStatus'])) {
 
             require_once VIEW_PATH . 'registration.html';
@@ -53,5 +55,6 @@ class AuthController
 
             require_once VIEW_PATH . 'dashboard.html';
         }
+    
     }
 }
