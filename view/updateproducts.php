@@ -16,7 +16,6 @@
         <h3 class="text-center">Update Product</h3>
         <form method="POST" id="myform" action="?action=storeProducts" enctype="multipart/form-data">
             <input type="hidden" name="submit" value="1">
-
             <input type="hidden" name="cat_id" value="<?php echo $_GET['updateid']; ?>">
             <div class="form-group">
                                 <label class="form-label">Product Name</label>

@@ -32,11 +32,7 @@ class CategoriesController
     {
         $datas = $this->model->getAllCategories();
         return require_once VIEW_PATH . 'tablecategories.php'; 
-      /*   if(($_GET['action'] == 'getCategories')&& isset($_GET['page'])){
-            $page=$_GET['page'];
-            //echo $page;
-            $this->model->Pagination();
-        } */
+
     }
 
     public function updateCategories()

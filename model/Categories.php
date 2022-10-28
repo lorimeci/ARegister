@@ -75,7 +75,10 @@ class CategoriesModel
     ECHO "<BR>"."JEMI TE DISPLAY PAGINATION"."<BR>";
       $page = $_GET['page'];
       var_dump("var dump page ".$page."<br>");
-     $sql = "SELECT * FROM categories LIMIT 0,2" ;
+      $num_per_page = 2;
+     $start_from = ($page - 1) *$num_per_page;
+     var_dump("start from ->".$start_from."<br>");
+     $sql = "SELECT * FROM categories LIMIT $start_from,$num_per_page" ;
         $result = $this->db->query($sql);
         var_dump($result);
         return $result->fetchAll(); 

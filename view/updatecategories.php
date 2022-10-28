@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Category Name</label>
-                <input type="text" class="form-control" placeholder="Enter name here " value="<?php echo $_GET['name']; ?>" name="c_name" />
+                <input type="text" class="form-control" placeholder="Enter name here" value="<?php echo $_GET['name']; ?>" name="c_name" />
             </div>
             <div class="form-group">
                 <label class="form-label">Select Image to Upload: </label>
