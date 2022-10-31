@@ -5,10 +5,15 @@ class AuthModel
 
     public function checkLogin($email, $password)
     {
-        $sql = "SELECT count(*) FROM  users WHERE email='{$email}'AND pwd='{$password}'";
-        $stmt = $this->db->prepare($sql)->execute();
-        return $stmt;
+        $sql = "SELECT * FROM  users WHERE email='{$email}'AND pwd='{$password}' LIMIT 1";
+        $stmt = $this->db->query($sql);
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
     public function checkRegister($name, $phone, $email, $password, $confirmpassword)
     {
 
